@@ -1,9 +1,9 @@
 const routes = {
-    "/profile": "pages/profile.html",
-    "/projets": "pages/projets.html",
-    "/compétences": "pages/compétences.html",
-    "/expériences-professionnelle": "pages/expériences-professionnelle.html",
-    "/formations-académique": "pages/formations-académique.html",
+    "/profil": "pages/profil.html",
+    "/projects": "pages/projects.html",
+    "/competences": "pages/competences.html",
+    "/professional-experience": "pages/professional-experience.html",
+    "/academic-training": "pages/academic-training.html",
 };
 
 const handleLocation = async () => {
