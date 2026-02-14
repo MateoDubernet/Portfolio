@@ -40,7 +40,7 @@ window.addEventListener("click", (e) => {
 });
 
 if (window.location.pathname === "/") {
-    window.location.replace("#/profil");
+    window.location.href = "#/profil";
 }
 
 window.addEventListener("hashchange", handleLocation);
