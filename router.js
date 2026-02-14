@@ -1,7 +1,7 @@
 const profilRoute = "/profil";
 
 const routes = {
-    profilRoute: "pages/profil.html",
+    "/profil": "pages/profil.html",
     "/projects": "pages/projects.html",
     "/competences": "pages/competences.html",
     "/professional-experience": "pages/professional-experience.html",
