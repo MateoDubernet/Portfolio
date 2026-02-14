@@ -10,7 +10,7 @@ const routes = {
 
 const handleLocation = async () => {
     if (!window.location.hash || window.location.hash === "#/") {
-        window.history.replaceState({}, "", "/profil");
+        window.history.replaceState({}, "", profilRoute);
     }
 
     let path = window.location.hash.replace("#", "");
