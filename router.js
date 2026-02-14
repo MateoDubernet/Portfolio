@@ -14,7 +14,7 @@ const handleLocation = async () => {
     }
 
     let path = window.location.hash.replace("#", "");
-    const route = routes[path] || routes[profilRoute];
+    const route = routes[path] || routes["/profil"];
 
     try {
         const response = await fetch(route);
