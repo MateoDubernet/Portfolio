@@ -41,16 +41,5 @@ const updateActiveLink = (path) => {
     });
 };
 
-// window.addEventListener("click", (e) => {
-//     if (e.target.matches("[data-link]")) {
-//         e.preventDefault();
-//         window.history.pushState({}, "", e.target.href);
-//         handleLocation();
-//     }
-// });
-
 window.addEventListener("hashchange", handleLocation);
 window.addEventListener("DOMContentLoaded", handleLocation);
-
-// window.onpopstate = handleLocation;
-// handleLocation();
