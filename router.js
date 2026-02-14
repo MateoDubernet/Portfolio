@@ -1,17 +1,33 @@
+const profilRoute = "/profil";
+
 const routes = {
     "/profil": "pages/profil.html",
+    "/projects": "pages/projects.html",
     "/competences": "pages/competences.html",
     "/professional-experience": "pages/professional-experience.html",
     "/academic-training": "pages/academic-training.html",
-    "/projects": "pages/projects.html",
 };
 
 const handleLocation = async () => {
-    let path = window.location.hash.replace("#", "");
+    if (!window.location.hash || window.location.hash === "#/") {
+        window.history.replaceState({}, "", `#${profilRoute}`);
+    }
 
-    const route = routes[path] || routes["/"];
-    const html = await fetch(route).then((data) => data.text());
-    document.getElementById("app").innerHTML = html;
+    let path = window.location.hash.replace("#", "");
+    const route = routes[path] || routes[profilRoute];
+
+    try {
+        const response = await fetch(route);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${route}: ${response.statusText}`);
+        }
+
+        const html = await response.text();
+        document.getElementById("app").innerHTML = html;
+    } catch (error) {
+        console.error(error);
+        document.getElementById("app").innerHTML = "<p>Page not found</p>";
+    }
 
     updateActiveLink(path);
 };
@@ -21,29 +37,11 @@ const updateActiveLink = (path) => {
 
     links.forEach(link => {
         link.classList.remove("active");
-
-        const linkPath = new URL(link.href).pathname;
-
-        if (linkPath === path || (path === "/" && linkPath === "/profil")) {
+        if (link.getAttribute("href") === `#${path}`) {
             link.classList.add("active");
         }
-    })
+    });
 };
-
-window.addEventListener("click", (e) => {
-    if (e.target.matches("[data-link]")) {
-        e.preventDefault();
-        window.history.pushState({}, "", e.target.href);
-        handleLocation();
-    }
-});
-
-if (window.location.pathname === "/") {
-    window.location.href = "#/profil";
-}
 
 window.addEventListener("hashchange", handleLocation);
 window.addEventListener("DOMContentLoaded", handleLocation);
-
-window.onpopstate = handleLocation;
-handleLocation();
