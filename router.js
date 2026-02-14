@@ -1,5 +1,4 @@
 const routes = {
-    "/": "pages/profil.html",
     "/profil": "pages/profil.html",
     "/competences": "pages/competences.html",
     "/professional-experience": "pages/professional-experience.html",
@@ -8,12 +7,25 @@ const routes = {
 };
 
 const handleLocation = async () => {
-    let path = window.location.hash.replace("#", "");
-    if (path === "") path = "/";
+    if (!window.location.hash || window.location.hash === "#/") {
+        window.history.replaceState({}, "", "#/profil");
+    }
 
-    const route = routes[path] || routes["/"];
-    const html = await fetch(route).then((data) => data.text());
-    document.getElementById("app").innerHTML = html;
+    let path = window.location.hash.replace("#", "");
+    const route = routes[path] || routes["/profil"];
+
+    try {
+        const response = await fetch(route);
+        if (!response.ok) {
+            throw new Error(`Failed to load ${route}: ${response.statusText}`);
+        }
+
+        const html = await response.text();
+        document.getElementById("app").innerHTML = html;
+    } catch (error) {
+        console.error(error);
+        document.getElementById("app").innerHTML = "<p>Page not found</p>";
+    }
 
     updateActiveLink(path);
 };
@@ -23,29 +35,22 @@ const updateActiveLink = (path) => {
 
     links.forEach(link => {
         link.classList.remove("active");
-
-        const linkPath = new URL(link.href).hash.replace("#", "");
-
-        if (linkPath === path || (path === "/" && linkPath === "/profil")) {
+        if (link.getAttribute("href") === `#${path}`) {
             link.classList.add("active");
         }
-    })
+    });
 };
 
-window.addEventListener("click", (e) => {
-    if (e.target.matches("[data-link]")) {
-        e.preventDefault();
-        window.history.pushState({}, "", e.target.href);
-        handleLocation();
-    }
-});
-
-if (!window.location.hash || window.location.hash === "#/") {
-    window.history.replaceState({}, "", "#/profil");
-}
+// window.addEventListener("click", (e) => {
+//     if (e.target.matches("[data-link]")) {
+//         e.preventDefault();
+//         window.history.pushState({}, "", e.target.href);
+//         handleLocation();
+//     }
+// });
 
 window.addEventListener("hashchange", handleLocation);
 window.addEventListener("DOMContentLoaded", handleLocation);
 
-window.onpopstate = handleLocation;
-handleLocation();
+// window.onpopstate = handleLocation;
+// handleLocation();
