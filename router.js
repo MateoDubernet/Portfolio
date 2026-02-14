@@ -10,11 +10,11 @@ const routes = {
 
 const handleLocation = async () => {
     if (!window.location.hash || window.location.hash === "#/") {
-        window.history.replaceState({}, "", `#${profilRoute}`);
+        window.history.replaceState({}, "", "/profil");
     }
 
     let path = window.location.hash.replace("#", "");
-    const route = routes[path] || routes["/profil"];
+    const route = routes[path] || routes[profilRoute];
 
     try {
         const response = await fetch(route);
