@@ -1,4 +1,5 @@
 const routes = {
+    "/": "pages/profil.html",
     "/profil": "pages/profil.html",
     "/competences": "pages/competences.html",
     "/professional-experience": "pages/professional-experience.html",
@@ -37,10 +38,6 @@ window.addEventListener("click", (e) => {
         handleLocation();
     }
 });
-
-if (window.location.pathname === "/") {
-    window.location.href = "#/profil";
-}
 
 window.addEventListener("hashchange", handleLocation);
 window.addEventListener("DOMContentLoaded", handleLocation);
