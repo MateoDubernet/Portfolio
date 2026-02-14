@@ -9,7 +9,6 @@ const routes = {
 
 const handleLocation = async () => {
     let path = window.location.hash.replace("#", "");
-    if (path === "") path = "/";
 
     const route = routes[path] || routes["/"];
     const html = await fetch(route).then((data) => data.text());
