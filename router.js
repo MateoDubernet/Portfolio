@@ -24,7 +24,7 @@ const updateActiveLink = (path) => {
     links.forEach(link => {
         link.classList.remove("active");
 
-        const linkPath = new URL(link.href).pathname;
+        const linkPath = new URL(link.href).hash.replace("#", "");
 
         if (linkPath === path || (path === "/" && linkPath === "/profil")) {
             link.classList.add("active");
@@ -39,6 +39,10 @@ window.addEventListener("click", (e) => {
         handleLocation();
     }
 });
+
+// if (window.location.pathname === "/") {
+//     window.location.href = "#/profil";
+// }
 
 window.addEventListener("hashchange", handleLocation);
 window.addEventListener("DOMContentLoaded", handleLocation);
