@@ -1,18 +1,18 @@
 const routes = {
-    "/profil": "pages/profil.html",
-    "/competences": "pages/competences.html",
-    "/professional-experience": "pages/professional-experience.html",
-    "/academic-training": "pages/academic-training.html",
-    "/projects": "pages/projects.html",
+    "/profile": "pages/profile.html",
+    "/projets": "pages/projets.html",
+    "/compétences": "pages/compétences.html",
+    "/expériences-professionnelle": "pages/expériences-professionnelle.html",
+    "/formations-académique": "pages/formations-académique.html",
 };
 
 const handleLocation = async () => {
     if (!window.location.hash || window.location.hash === "#/") {
-        window.history.replaceState({}, "", "#/profil");
+        window.history.replaceState({}, "", "#/profile");
     }
 
     let path = window.location.hash.replace("#", "");
-    const route = routes[path] || routes["/profil"];
+    const route = routes[path] || routes["/profile"];
 
     try {
         const response = await fetch(route);
