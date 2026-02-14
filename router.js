@@ -1,5 +1,7 @@
+const profilRoute = "/profil";
+
 const routes = {
-    "/profil": "pages/profil.html",
+    profilRoute: "pages/profil.html",
     "/projects": "pages/projects.html",
     "/competences": "pages/competences.html",
     "/professional-experience": "pages/professional-experience.html",
@@ -8,11 +10,11 @@ const routes = {
 
 const handleLocation = async () => {
     if (!window.location.hash || window.location.hash === "#/") {
-        window.history.replaceState({}, "", "#/profil");
+        window.history.replaceState({}, "", `#${profilRoute}`);
     }
 
     let path = window.location.hash.replace("#", "");
-    const route = routes[path] || routes["/profil"];
+    const route = routes[path] || routes[profilRoute];
 
     try {
         const response = await fetch(route);
