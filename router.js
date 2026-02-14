@@ -40,7 +40,7 @@ window.addEventListener("click", (e) => {
     }
 });
 
-if (!window.location.hash || window.location.hash === "#/") {
+if (!window.location.hash || window.location.hash === "/") {
     window.location.replace("#/profil");
 }
 
