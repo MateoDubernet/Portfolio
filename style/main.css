@@ -29,8 +29,34 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.08);
 }
 
-.profil-container {
+.profil-section {
   width: 100%;
   max-width: 1000px;
   margin: 2rem auto;
+}
+
+/* Professional Experience and Academic Training */
+
+.professional-experience-section, .academic-training-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.professional-experience-card, .academic-training-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    padding: 1.5rem;
+    margin: 1rem;
+}
+
+.professional-experience-date-location, .professional-experience-title, .academic-training-date-location, .academic-training-title {
+    text-align: center;
+}
+
+.professional-experience-description, .academic-training-description {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px rgba(0, 0, 0, 0.1) solid;
 }

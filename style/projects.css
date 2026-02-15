@@ -1,9 +1,9 @@
-.projects-container {
+.projects-section {
     width: 100%;
     margin: 2rem auto;
 }
 
-.projects-container h2 {
+.projects-section h2 {
     margin-bottom: 1rem;
     color: #2c3e50;
     text-align: center;
