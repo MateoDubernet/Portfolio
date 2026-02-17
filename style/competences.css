@@ -16,12 +16,12 @@
     margin-top: inherit;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     gap: 1.5rem;
 }
 
-.technical-competence-list {
+.technical-competence-list, .language-competence-list {
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
 }
 
@@ -30,7 +30,8 @@
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-    width: 24%;
+    width: 19%;
     padding: 1rem;
     display: flex;
+    justify-content: center;
 }
