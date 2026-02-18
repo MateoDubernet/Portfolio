@@ -20,21 +20,6 @@ body {
   justify-content: space-between;
 }
 
-/* SECTION A PROPOS */
-.about {
-  background: #fff;
-  padding: 2rem;
-  margin: 2rem auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-}
-
-.profil-section {
-  width: 100%;
-  max-width: 1000px;
-  margin: 2rem auto;
-}
-
 /* Professional Experience and Academic Training */
 
 .professional-experience-section, .academic-training-section {

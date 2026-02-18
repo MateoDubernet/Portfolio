@@ -1,0 +1,23 @@
+.profil-section {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.about, .info {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+}
+
+.about {align-self: flex-start;
+    width: 50%;
+}
+
+.info {
+    display: flex;
+    width: fit-content;
+    gap: 1.5rem;
+    flex-direction: column;
+}
