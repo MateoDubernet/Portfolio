@@ -33,6 +33,13 @@
     text-align: left;
 }
 
+.tasks {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
