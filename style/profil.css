@@ -1,23 +1,43 @@
 .profil-section {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.about, .info {
     background: #fff;
     padding: 1.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.08);
-}
+    justify-self: center;
+    max-width: 70%;
 
-.about {align-self: flex-start;
-    width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
 .info {
     display: flex;
-    width: fit-content;
-    gap: 1.5rem;
-    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    border-bottom: black 1px solid;
+    padding-bottom: 1rem;
+}
+
+.about {
+    margin-top: 1rem;
+}
+
+.contact {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.photo-container {
+    display: flex;
+    justify-content: center;
+    max-width: 20%;
+}
+
+.photo {
+    display: block;
+    width: 50%;
+    border-radius: 5px;
 }
