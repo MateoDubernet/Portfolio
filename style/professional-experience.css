@@ -33,6 +33,12 @@
     text-align: left;
 }
 
+.professional-experience-description {
+    border-top: 1px solid #f0f0f0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
 .tasks {
     margin-top: 0.5rem;
     display: flex;
